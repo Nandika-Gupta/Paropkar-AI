@@ -1,0 +1,12 @@
+{
+  "name": "paropkargroq",
+  "version": "1.0.0",
+  "description": "Groq AI Lambda for Paropkar",
+  "main": "index.js",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "aws-serverless-express": "^3.3.5",
+    "body-parser": "^1.17.1",
+    "express": "^4.15.2"
+  }
+}

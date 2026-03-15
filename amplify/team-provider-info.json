@@ -1,0 +1,44 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-paropkariai-dev-8fbd2-authRole",
+      "UnauthRoleArn": "arn:aws:iam::055858485834:role/amplify-paropkariai-dev-8fbd2-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::055858485834:role/amplify-paropkariai-dev-8fbd2-authRole",
+      "Region": "ap-south-1",
+      "DeploymentBucketName": "amplify-paropkariai-dev-8fbd2-deployment",
+      "UnauthRoleName": "amplify-paropkariai-dev-8fbd2-unauthRole",
+      "StackName": "amplify-paropkariai-dev-8fbd2",
+      "StackId": "arn:aws:cloudformation:ap-south-1:055858485834:stack/amplify-paropkariai-dev-8fbd2/cb5778b0-203c-11f1-8b7a-02f11b3b23e9",
+      "AmplifyAppId": "d3vjjxftfv7n00"
+    },
+    "categories": {
+      "function": {
+        "paropkarDeadline": {
+          "deploymentBucketName": "amplify-paropkariai-dev-8fbd2-deployment",
+          "s3Key": "amplify-builds/paropkarDeadline-3830366d393552664543-build.zip"
+        },
+        "paropkarReminders": {
+          "deploymentBucketName": "amplify-paropkariai-dev-8fbd2-deployment",
+          "s3Key": "amplify-builds/paropkarReminders-61524541306e4a4f446c-build.zip"
+        },
+        "paropkarScan": {
+          "deploymentBucketName": "amplify-paropkariai-dev-8fbd2-deployment",
+          "s3Key": "amplify-builds/paropkarScan-51534966584770356378-build.zip"
+        },
+        "paropkarSpeak": {
+          "deploymentBucketName": "amplify-paropkariai-dev-8fbd2-deployment",
+          "s3Key": "amplify-builds/paropkarSpeak-417a6749386435796447-build.zip"
+        }
+      },
+      "api": {
+        "paropkarAI": {}
+      },
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d3vjjxftfv7n00",
+          "type": "manual"
+        }
+      }
+    }
+  }
+}
