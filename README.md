@@ -1,70 +1,195 @@
-# Getting Started with Create React App
+# 🏛️ Paropkar AI
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### AI-powered Legal Certificate Intelligence System
 
-## Available Scripts
+Paropkar AI is an intelligent system that helps citizens and government bodies **understand, validate, and track legal certificates** such as income certificates, caste certificates, and other official documents.
 
-In the project directory, you can run:
+Instead of manually reading government documents, users can upload a certificate and Paropkar AI will:
 
-### `npm start`
+* 📄 Extract key information
+* 🔍 Verify document authenticity
+* ⏳ Detect expiry dates and validity
+* 📢 Alert users when certificates need renewal
+* 🤖 Provide AI-based explanations of legal documents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# 🚨 Problem
 
-### `npm test`
+Millions of citizens receive government certificates but often:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* Do not know **when the certificate expires**
+* Do not know **when to renew it**
+* Cannot easily **verify authenticity**
+* Struggle to understand **legal language**
 
-### `npm run build`
+Government officers also manually verify certificates, which is slow and inefficient.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+# 💡 Solution
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Paropkar AI acts as a **digital legal assistant** that analyzes certificates automatically.
 
-### `npm run eject`
+Users upload a document → AI reads it → structured information is returned.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Example output:
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```
+Certificate Type: Income Certificate
+Issued By: Karnataka Government
+Issue Date: 12 Aug 2023
+Expiry Date: 11 Aug 2024
+Status: Valid
+Renewal Alert: 30 days before expiry
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+This removes manual checking and reduces fraud.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+---
 
-## Learn More
+# ⚙️ How It Works
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The system follows this pipeline:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+```
+User Upload
+   ↓
+Document Parsing
+   ↓
+AI Rule Engine
+   ↓
+Certificate Intelligence
+   ↓
+User Dashboard
+```
 
-### Code Splitting
+### Components
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Frontend**
 
-### Analyzing the Bundle Size
+* ReactJS interface
+* Upload and authentication
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+**Backend**
 
-### Making a Progressive Web App
+* Node.js server
+* Certificate analysis engine
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+**AI Layer**
 
-### Advanced Configuration
+* Rule-based certificate intelligence
+* Expiry detection
+* Data extraction
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+**Cloud Infrastructure**
 
-### Deployment
+* AWS Amplify
+* AWS Storage
+* Server APIs
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+---
 
-### `npm run build` fails to minify
+# 🧠 Key Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### 📄 Certificate Understanding
+
+Extracts fields such as:
+
+* Name
+* Certificate type
+* Issue date
+* Validity
+* Authority
+
+---
+
+### 🔐 Aadhaar Validation
+
+Uses checksum validation to ensure Aadhaar numbers are structurally valid.
+
+---
+
+### ⏳ Expiry Detection
+
+Automatically detects certificate expiry and alerts users.
+
+---
+
+### 🛡️ Fraud Prevention
+
+Helps detect suspicious or altered certificates.
+
+---
+
+### 📊 Citizen Assistance
+
+Explains documents in **simple language**.
+
+---
+
+# 🏗️ System Architecture
+
+```
+User
+ ↓
+React Frontend
+ ↓
+API Layer
+ ↓
+Certificate Processing Engine
+ ↓
+Rules + AI Logic
+ ↓
+Structured Output
+```
+
+---
+
+# 🛠️ Tech Stack
+
+**Frontend**
+
+* React.js
+
+**Backend**
+
+* Node.js
+* Express.js
+
+**Cloud**
+
+* AWS Amplify
+* AWS S3
+
+**AI Logic**
+
+* Rule-based certificate analysis
+* Document intelligence
+
+---
+
+# 🚀 Future Improvements
+
+* OCR for scanned documents
+* Multi-language support
+* Integration with DigiLocker
+* Government verification APIs
+* Fraud detection ML models
+
+---
+
+# 🌍 Impact
+
+Paropkar AI can help:
+
+* Citizens manage legal certificates easily
+* Reduce government paperwork
+* Prevent document fraud
+* Improve transparency
+
+---
+
+# ⭐ Project Vision
+
+To build an **AI-powered legal document intelligence platform** that simplifies government services for citizens.
