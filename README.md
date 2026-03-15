@@ -68,27 +68,30 @@ User Dashboard
 
 **Frontend**
 
-* ReactJS interface
-* Upload and authentication
+* React 18
+* AWS Amplify JS
+
+**Authentication**
+
+* Aadhaar validation (Verhoeff checksum)
+* localStorage session
 
 **Backend**
 
-* Node.js server
-* Certificate analysis engine
+* AWS Lambda (Node.js)
+* Amazon API Gateway
 
 **AI Layer**
 
-* Rule-based certificate intelligence
-* Expiry detection
-* Data extraction
+* AWS Textract
+* Amazon Polly
+* Groq AI
 
 **Cloud Infrastructure**
 
-* AWS Amplify
-* AWS Storage
-* Server APIs
-
----
+* AWS Amplify Hosting
+* Amazon DynamoDB
+* Amazon SNS
 
 # 🧠 Key Features
 
