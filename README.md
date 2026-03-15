@@ -26,7 +26,13 @@ Millions of citizens receive government certificates but often:
 Government officers also manually verify certificates, which is slow and inefficient.
 
 ---
+## 📖 Meaning of "Paropkar"
 
+The word **Paropkar (परोपकार)** comes from Sanskrit/Hindi and means **selfless service or helping others for the welfare of society**.
+
+The project reflects this idea by using AI and cloud technology to help citizens better understand and manage government certificates.
+
+---
 # 💡 Solution
 
 Paropkar AI acts as a **digital legal assistant** that analyzes certificates automatically.
