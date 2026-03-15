@@ -1,0 +1,33 @@
+{
+  "version": 1,
+  "paths": {
+    "/deadline": {
+      "name": "/deadline",
+      "lambdaFunction": "paropkarDeadline",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/reminders": {
+      "name": "/reminders",
+      "lambdaFunction": "paropkarReminders",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/scan": {
+      "name": "/scan",
+      "lambdaFunction": "paropkarScan",
+      "permissions": {
+        "setting": "open"
+      }
+    },
+    "/speak": {
+      "name": "/speak",
+      "lambdaFunction": "paropkarSpeak",
+      "permissions": {
+        "setting": "open"
+      }
+    }
+  }
+}

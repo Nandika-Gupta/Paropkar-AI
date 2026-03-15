@@ -1,0 +1,154 @@
+{
+  "api": {
+    "paropkarAI": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "paropkarDeadline"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "paropkarReminders"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "paropkarScan"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
+          "resourceName": "paropkarSpeak"
+        }
+      ],
+      "providerPlugin": "awscloudformation",
+      "service": "API Gateway"
+    }
+  },
+  "function": {
+    "paropkarDeadline": {
+      "build": true,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "paropkarReminders": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "paropkarScan": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "paropkarSpeak": {
+      "build": true,
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    }
+  },
+  "hosting": {
+    "amplifyhosting": {
+      "providerPlugin": "awscloudformation",
+      "service": "amplifyhosting",
+      "type": "manual"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_function_paropkarDeadline_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarDeadline"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarDeadline_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarDeadline"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarReminders_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarReminders"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarReminders_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarReminders"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarScan_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarScan"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarScan_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarScan"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarSpeak_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarSpeak"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarSpeak_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarSpeak"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_appId": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    },
+    "AMPLIFY_hosting_amplifyhosting_type": {
+      "usedBy": [
+        {
+          "category": "hosting",
+          "resourceName": "amplifyhosting"
+        }
+      ]
+    }
+  }
+}

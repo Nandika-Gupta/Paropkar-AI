@@ -1,1 +1,55 @@
+flow: paropkar_voice_assistant
 
+steps:
+  - id: ask_certificate_type
+    type: ask
+    prompt: "Which certificate do you need help with? Income certificate or caste certificate?"
+    expects: certificate_type
+    options:
+      - income_certificate
+      - caste_certificate
+
+  - id: ask_state
+    type: ask
+    prompt: "Which state are you applying from?"
+    expects: state
+    options:
+      - Karnataka
+      - Uttar_Pradesh
+      - Maharashtra
+      - Tamil_Nadu
+
+  - id: ask_deadline
+    type: ask
+    prompt: "What is your scholarship or job application deadline? Please say the date in day month year format."
+    expects: deadline
+    format: YYYY-MM-DD
+
+  - id: ask_existing_certificate
+    type: ask
+    prompt: "Do you already have an existing certificate?"
+    expects: has_certificate
+    options:
+      - yes
+      - no
+
+  - id: upload_photo
+    type: upload
+    condition: has_certificate == yes
+    prompt: "Please upload a photo of your existing certificate."
+    expects: certificate_photo
+    format: image
+
+  - id: calculate_deadline
+    type: action
+    action: call_deadline_calculator
+    inputs:
+      deadline: "{{deadline}}"
+      state: "{{state}}"
+      certificate_type: "{{certificate_type}}"
+    outputs:
+      apply_by: apply_by_date
+
+  - id: speak_result
+    type: speak
+    prompt: "You should apply for your {{certificate_type}} by {{apply_by_date}}. This gives enough time for processing and a 3-day buffer before your deadline."
