@@ -1,1 +1,22 @@
+certificates:
+  income_certificate:
+    states:
+      Karnataka:
+        processing_days: 15
+      Uttar_Pradesh:
+        processing_days: 25
+      Maharashtra:
+        processing_days: 20
+      Tamil_Nadu:
+        processing_days: 18
 
+  caste_certificate:
+    states:
+      Karnataka:
+        processing_days: 21
+      Uttar_Pradesh:
+        processing_days: 30
+      Maharashtra:
+        processing_days: 25
+      Tamil_Nadu:
+        processing_days: 22
