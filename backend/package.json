@@ -1,0 +1,8 @@
+{
+  "name": "paropkar-backend",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "js-yaml": "^4.1.0"
+  }
+}
