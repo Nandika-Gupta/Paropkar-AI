@@ -57,12 +57,14 @@ User Upload
    ↓
 Document Parsing
    ↓
-AI Rule Engine
+AI Processing
    ↓
 Certificate Intelligence
    ↓
 User Dashboard
 ```
+
+---
 
 ### Components
 
@@ -92,6 +94,8 @@ User Dashboard
 * AWS Amplify Hosting
 * Amazon DynamoDB
 * Amazon SNS
+
+---
 
 # 🧠 Key Features
 
@@ -138,37 +142,14 @@ User
  ↓
 React Frontend
  ↓
-API Layer
+API Gateway
  ↓
-Certificate Processing Engine
+AWS Lambda Functions
  ↓
-Rules + AI Logic
+Textract / Polly / Groq AI
  ↓
 Structured Output
 ```
-
----
-
-# 🛠️ Tech Stack
-
-**Frontend**
-
-* React.js
-
-**Backend**
-
-* Node.js
-* Express.js
-
-**Cloud**
-
-* AWS Amplify
-* AWS S3
-
-**AI Logic**
-
-* Rule-based certificate analysis
-* Document intelligence
 
 ---
 
