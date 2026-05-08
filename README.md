@@ -1,4 +1,4 @@
-# 🏛️ Paropkar AI
+#  Paropkar AI
 
 ### AI-powered Legal Certificate Intelligence System
 
@@ -6,15 +6,15 @@ Paropkar AI is an intelligent system that helps citizens and government bodies *
 
 Instead of manually reading government documents, users can upload a certificate and Paropkar AI will:
 
-* 📄 Extract key information
-* 🔍 Verify document authenticity
-* ⏳ Detect expiry dates and validity
-* 📢 Alert users when certificates need renewal
-* 🤖 Provide AI-based explanations of legal documents
+* Extract key information
+* Verify document authenticity
+* Detect expiry dates and validity
+*  Alert users when certificates need renewal
+*  Provide AI-based explanations of legal documents
 
 ---
 
-# 🚨 Problem
+# Problem
 
 Millions of citizens receive government certificates but often:
 
@@ -26,14 +26,14 @@ Millions of citizens receive government certificates but often:
 Government officers also manually verify certificates, which is slow and inefficient.
 
 ---
-## 📖 Meaning of "Paropkar"
+## Meaning of "Paropkar"
 
 The word **Paropkar (परोपकार)** comes from Sanskrit/Hindi and means **selfless service or helping others for the welfare of society**.
 
 The project reflects this idea by using AI and cloud technology to help citizens better understand and manage government certificates.
 
 ---
-# 💡 Solution
+# Solution
 
 Paropkar AI acts as a **digital legal assistant** that analyzes certificates automatically.
 
@@ -54,7 +54,7 @@ This removes manual checking and reduces fraud.
 
 ---
 
-# ⚙️ How It Works
+# How It Works
 
 The system follows this pipeline:
 
@@ -103,9 +103,9 @@ User Dashboard
 
 ---
 
-# 🧠 Key Features
+# Key Features
 
-### 📄 Certificate Understanding
+### Certificate Understanding
 
 Extracts fields such as:
 
@@ -117,31 +117,31 @@ Extracts fields such as:
 
 ---
 
-### 🔐 Aadhaar Validation
+### Aadhaar Validation
 
 Uses checksum validation to ensure Aadhaar numbers are structurally valid.
 
 ---
 
-### ⏳ Expiry Detection
+### Expiry Detection
 
 Automatically detects certificate expiry and alerts users.
 
 ---
 
-### 🛡️ Fraud Prevention
+### Fraud Prevention
 
 Helps detect suspicious or altered certificates.
 
 ---
 
-### 📊 Citizen Assistance
+### Citizen Assistance
 
 Explains documents in **simple language**.
 
 ---
 
-# 🏗️ System Architecture
+# System Architecture
 
 ```
 User
@@ -159,7 +159,7 @@ Structured Output
 
 ---
 
-# 🚀 Future Improvements
+# Future Improvements
 
 * OCR for scanned documents
 * Multi-language support
@@ -169,7 +169,7 @@ Structured Output
 
 ---
 
-# 🌍 Impact
+# Impact
 
 Paropkar AI can help:
 
@@ -180,6 +180,6 @@ Paropkar AI can help:
 
 ---
 
-# ⭐ Project Vision
+# Project Vision
 
 To build an **AI-powered legal document intelligence platform** that simplifies government services for citizens.
