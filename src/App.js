@@ -1,5 +1,5 @@
 import { useState, useRef, useEffect } from "react";
-import { calculateDeadline, isValidAadhaar, isValidPhoneE164, saveReminder, scanCertificate, sendAadhaarOtp, speakText, verifyAadhaarOtp } from "./amplifyApi";
+import { calculateDeadline, extractCertificate, isValidAadhaar, isValidPhoneE164, saveReminder, scanCertificate, sendAadhaarOtp, speakText, verifyAadhaarOtp } from "./amplifyApi";
 import AuthPage, { getStoredSession, clearSession } from "./AuthPage";
 
 const COLORS = { idle: "#6b7280", listening: "#3b82f6", processing: "#10b981", speaking: "#f97316" };
@@ -71,7 +71,7 @@ function ScannerTab(){
   const handleFile=async(e)=>{
     const file=e.target.files[0];if(!file)return;setPhase("scanning");
     const reader=new FileReader();
-    reader.onload=async()=>{const b64=reader.result.split(",")[1];try{const d=await scanCertificate(b64);setResult(d);setPhase("result");}catch{setResult({name:"Rahul Kumar",type:"Income Certificate",issueDate:"15 March 2024",expiryDate:"14 March 2025",category:"OBC",state:"Karnataka",authority:"Tahsildar, Bengaluru Urban",expired:true,daysOverdue:45});setPhase("result");}};
+    reader.onload=async()=>{const b64=reader.result.split(",")[1];try{const scan=await scanCertificate(b64);const ex=await extractCertificate(scan.lines||[]);const f=ex.fields||{};const exp=ex.expiry||{};setResult({name:f.holderName,type:CERT_VALIDITY[f.certificateType]?.label||f.certificateType,issueDate:f.issueDate,expiryDate:exp.expiryDate,authority:f.issuingAuthority,state:f.state,expired:exp.status==="EXPIRED",daysOverdue:exp.daysRemaining<0?-exp.daysRemaining:0,needsReview:ex.needsReview});setPhase("result");}catch{setResult({name:"Rahul Kumar",type:"Income Certificate",issueDate:"15 March 2024",expiryDate:"14 March 2025",category:"OBC",state:"Karnataka",authority:"Tahsildar, Bengaluru Urban",expired:true,daysOverdue:45});setPhase("result");}};
     reader.readAsDataURL(file);
   };
   return(
@@ -86,6 +86,7 @@ function ScannerTab(){
           <div style={{color:"#10b981",fontWeight:700,fontSize:13,marginBottom:14}}>✅ Certificate Read Successfully</div>
           {[["Name",result.name],["Type",result.type],["Issue Date",result.issueDate],["Expiry Date",result.expiryDate],["Category",result.category],["Authority",result.authority],["State",result.state]].map(([k,v])=><div key={k} style={{display:"flex",justifyContent:"space-between",padding:"9px 0",borderBottom:"1px solid rgba(148,163,184,0.08)",fontSize:13}}><span style={{color:"#64748b"}}>{k}</span><span style={{color:"#e2e8f0",fontWeight:600}}>{v}</span></div>)}
         </div>
+        {result.needsReview&&<div style={{background:"rgba(245,158,11,0.08)",border:"1px solid rgba(245,158,11,0.25)",borderRadius:12,padding:"14px 18px",marginBottom:14}}><div style={{color:"#f59e0b",fontWeight:700}}>⚠️ Could not read every field reliably — please check the details</div></div>}
         {result.expired&&<div style={{background:"rgba(239,68,68,0.08)",border:"1px solid rgba(239,68,68,0.25)",borderRadius:12,padding:"14px 18px",marginBottom:14}}><div style={{color:"#ef4444",fontWeight:700}}>⚠️ Expired {result.daysOverdue} days ago</div></div>}
         <Btn onClick={()=>{setPhase("idle");setResult(null);}} variant="ghost" fullWidth>📸 Scan Another</Btn>
       </div>}

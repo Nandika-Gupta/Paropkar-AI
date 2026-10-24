@@ -52,6 +52,16 @@ export async function scanCertificate(base64Image) {
   }
 }
 
+// Extract structured fields from Textract lines via the Groq Lambda
+export async function extractCertificate(lines) {
+  const res = await post({
+    apiName: API_NAME,
+    path: "/groq/extract",
+    options: { body: { lines } },
+  }).response;
+  return await res.body.json();
+}
+
 // Polly text-to-speech via Lambda
 export async function speakText(text, language = "hi-IN") {
   try {
