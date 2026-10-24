@@ -8,6 +8,10 @@ const express = require('express')
 const bodyParser = require('body-parser')
 const awsServerlessExpressMiddleware = require('aws-serverless-express/middleware')
 const https = require('https')
+const { getGroqApiKey } = require('./lib/secrets')
+const { createGroqClient } = require('./lib/groqClient')
+const { extractFields } = require('./lib/extract')
+const { computeExpiry } = require('./lib/expiry')
 
 const app = express()
 app.use(bodyParser.json())
@@ -18,8 +22,6 @@ app.use(function(req, res, next) {
   next()
 })
 
-const GROQ_API_KEY = process.env.GROQ_API_KEY || ''
-
 const SYSTEM_PROMPT = `You are Paropkar AI, a helpful assistant for Indian citizens managing government certificates.
 You help with: income certificates, caste certificates, domicile certificates, Aadhaar, ration cards.
 You know processing times by state, scholarship deadlines, and renewal procedures.
@@ -27,7 +29,7 @@ Keep responses SHORT (2-3 sentences max). Respond in the same language the user 
 If they mention a certificate type and state, calculate when they need to apply.
 Always end with 1-2 actionable quick-reply options as JSON array in format: OPTIONS:["option1","option2"]`
 
-function callGroq(userMessage) {
+function callGroq(userMessage, apiKey) {
   return new Promise((resolve, reject) => {
     const body = JSON.stringify({
       model: 'llama-3.1-8b-instant',
@@ -45,7 +47,7 @@ function callGroq(userMessage) {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
-        'Authorization': `Bearer ${GROQ_API_KEY}`,
+        'Authorization': `Bearer ${apiKey}`,
         'Content-Length': Buffer.byteLength(body)
       }
     }
@@ -74,8 +76,13 @@ app.post('/groq', async function(req, res) {
 
   if (!message) return res.status(400).json({ error: 'message is required' })
 
+  const apiKey = await getGroqApiKey().catch(err => {
+    console.error('Could not load GROQ_API_KEY secret:', err)
+    return ''
+  })
+
   // Fallback if no API key configured
-  if (!GROQ_API_KEY) {
+  if (!apiKey) {
     return res.json({
       text: 'आपका certificate जल्द expire होने वाला है। कृपया अपने नजदीकी Tahsildar office जाएं।',
       opts: ['Income Certificate', 'Caste Certificate']
@@ -83,7 +90,7 @@ app.post('/groq', async function(req, res) {
   }
 
   try {
-    const groqRes = await callGroq(message)
+    const groqRes = await callGroq(message, apiKey)
     const content = groqRes.choices?.[0]?.message?.content || ''
 
     // Parse OPTIONS from response
@@ -99,6 +106,35 @@ app.post('/groq', async function(req, res) {
   } catch (err) {
     console.error('Groq error:', err)
     res.status(500).json({ error: err.message })
+  }
+})
+
+/**
+ * POST /groq/extract
+ * Body: { lines: string[] }  (Textract LINE texts from /scan)
+ * Returns LLM-extracted fields plus deterministic expiry status.
+ */
+app.post('/groq/extract', async function(req, res) {
+  const { lines } = req.body || {}
+  if (!Array.isArray(lines)) return res.status(400).json({ error: 'lines must be an array of strings' })
+
+  try {
+    const apiKey = await getGroqApiKey()
+    if (!apiKey) return res.status(503).json({ error: 'Extraction is not configured' })
+
+    // Two attempts must fit inside the 25s Lambda / 29s API Gateway limits
+    const result = await extractFields(lines, { client: createGroqClient({ apiKey, timeoutMs: 10000 }) })
+    res.json({
+      fields: result.fields,
+      needsReview: result.needsReview,
+      reviewReasons: result.reviewReasons,
+      expiry: result.fields ? computeExpiry(result.fields) : null,
+      model: result.model,
+      promptVersion: result.promptVersion,
+    })
+  } catch (err) {
+    console.error('Extract error:', err)
+    res.status(500).json({ error: 'Extraction failed' })
   }
 })
 

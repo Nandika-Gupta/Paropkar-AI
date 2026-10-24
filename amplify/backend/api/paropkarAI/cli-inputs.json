@@ -8,6 +8,13 @@
         "setting": "open"
       }
     },
+    "/groq": {
+      "name": "/groq",
+      "lambdaFunction": "paropkarGroq",
+      "permissions": {
+        "setting": "open"
+      }
+    },
     "/reminders": {
       "name": "/reminders",
       "lambdaFunction": "paropkarReminders",

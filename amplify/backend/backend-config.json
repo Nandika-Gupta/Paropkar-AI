@@ -8,6 +8,14 @@
             "Arn"
           ],
           "category": "function",
+          "resourceName": "paropkarGroq"
+        },
+        {
+          "attributes": [
+            "Name",
+            "Arn"
+          ],
+          "category": "function",
           "resourceName": "paropkarDeadline"
         },
         {
@@ -43,6 +51,11 @@
     "paropkarDeadline": {
       "build": true,
       "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Lambda"
+    },
+    "paropkarGroq": {
+      "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
     },
@@ -83,6 +96,22 @@
         {
           "category": "function",
           "resourceName": "paropkarDeadline"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarGroq_deploymentBucketName": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarGroq"
+        }
+      ]
+    },
+    "AMPLIFY_function_paropkarGroq_s3Key": {
+      "usedBy": [
+        {
+          "category": "function",
+          "resourceName": "paropkarGroq"
         }
       ]
     },
