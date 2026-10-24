@@ -24,9 +24,6 @@ const p = [
   [7,0,4,6,9,1,3,2,5,8],
 ];
 
-// Verhoeff inverse table
-const inv = [0,4,3,2,1,9,8,7,6,5];
-
 /**
  * Validates an Aadhaar number using the Verhoeff checksum algorithm.
  * @param {string} number - The Aadhaar number to validate.
